@@ -25,4 +25,4 @@ def calcular_media():
     print(f'A média anual é {media:.1f}')
 
 
-calcular_media()
+#  calcular_media()
