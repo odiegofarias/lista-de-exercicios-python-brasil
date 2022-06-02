@@ -53,3 +53,67 @@ até R$ 99999,99
 
 def calcular_salario_liquido(valor_hora: float, horas_trabalhadas: int):
     """Escreva aqui em baixo a sua solução"""
+    # O programa deverá pedir ao usuário o valor da sua hora e a quantidade de horas trabalhadas no mês.
+    salario_bruto = valor_hora * horas_trabalhadas
+    desconto_inss = salario_bruto * 0.10
+    desconto_sind = salario_bruto * 0.03
+    deposito_fgts = salario_bruto * 0.11
+    total_desconto = 0
+    desconto_ir = 0
+    sal_liquido = 0
+    """
+    Salário Bruto até 900 (inclusive) - isento
+    Salário Bruto até 1500 (inclusive) - desconto de 5%
+    Salário Bruto até 2500 (inclusive) - desconto de 10%
+    Salário Bruto acima de 2500 - desconto de 20%
+    """
+    if salario_bruto <= 900:
+        total_descontos = desconto_inss + desconto_sind
+        sal_liquido = salario_bruto - total_descontos
+        print(
+            f'Salário Bruto: (R$ {valor_hora:.2f} * {horas_trabalhadas})     : R$ {salario_bruto:>8.2f}\n'
+            f'(-) IR (0%)                        : R$ {0:>8.2f}\n'
+            f'(-) INSS (10%)                     : R$ {desconto_inss:>8.2f}\n'
+            f'(-) Sindicato (3%)                 : R$ {desconto_sind:>8.2f}\n'
+            f'FGTS (11%)                         : R$ {deposito_fgts:>8.2f}\n'
+            f'Total de descontos                 : R$ {total_descontos:>8.2f}\n'
+            f'Salário Liquido                    : R$ {sal_liquido:>8.2f}')
+
+    elif salario_bruto <= 1500:
+        desconto_ir = salario_bruto * 0.05
+        total_descontos = desconto_inss + desconto_sind + desconto_ir
+        sal_liquido = salario_bruto - total_descontos
+        print(
+            f'Salário Bruto: (R$ {valor_hora:.2f} * {horas_trabalhadas})     : R$ {salario_bruto:>8.2f}\n'
+            f'(-) IR (5%)                        : R$ {desconto_ir:>8.2f}\n'
+            f'(-) INSS (10%)                     : R$ {desconto_inss:>8.2f}\n'
+            f'(-) Sindicato (3%)                 : R$ {desconto_sind:>8.2f}\n'
+            f'FGTS (11%)                         : R$ {deposito_fgts:>8.2f}\n'
+            f'Total de descontos                 : R$ {total_descontos:>8.2f}\n'
+            f'Salário Liquido                    : R$ {sal_liquido:>8.2f}')
+
+    elif salario_bruto <= 2500:
+        desconto_ir = salario_bruto * 0.10
+        total_descontos = desconto_inss + desconto_sind + desconto_ir
+        sal_liquido = salario_bruto - total_descontos
+        print(
+            f'Salário Bruto: (R$ {valor_hora:.2f} * {horas_trabalhadas})    : R$ {salario_bruto:>8.2f}\n'
+            f'(-) IR (10%)                       : R$ {desconto_ir:>8.2f}\n'
+            f'(-) INSS (10%)                     : R$ {desconto_inss:>8.2f}\n'
+            f'(-) Sindicato (3%)                 : R$ {desconto_sind:>8.2f}\n'
+            f'FGTS (11%)                         : R$ {deposito_fgts:>8.2f}\n'
+            f'Total de descontos                 : R$ {total_descontos:>8.2f}\n'
+            f'Salário Liquido                    : R$ {sal_liquido:>8.2f}')
+
+    else:
+        desconto_ir = salario_bruto * 0.20
+        total_descontos = desconto_inss + desconto_sind + desconto_ir
+        sal_liquido = salario_bruto - total_descontos
+        print(
+            f'Salário Bruto: (R$ {valor_hora:.2f} * {horas_trabalhadas})   : R$ {salario_bruto:>8.2f}\n'
+            f'(-) IR (20%)                       : R$ {desconto_ir:>8.2f}\n'
+            f'(-) INSS (10%)                     : R$ {desconto_inss:>8.2f}\n'
+            f'(-) Sindicato (3%)                 : R$ {desconto_sind:>8.2f}\n'
+            f'FGTS (11%)                         : R$ {deposito_fgts:>8.2f}\n'
+            f'Total de descontos                 : R$ {total_descontos:>8.2f}\n'
+            f'Salário Liquido                    : R$ {sal_liquido:>8.2f}')
