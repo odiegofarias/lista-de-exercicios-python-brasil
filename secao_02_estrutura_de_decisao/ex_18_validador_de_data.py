@@ -24,3 +24,12 @@ Faça um Programa que peça uma data no formato dd/mm/aaaa e determine se a mesm
 
 def validar_data(data: str):
     """Escreva aqui em baixo a sua solução"""
+    data_convertida = data.replace('/', '')
+    data_int = list(map(int, data_convertida))
+
+    if len(data) < 7:
+        return 'Data inválida'
+    elif data_int[0] > 1 or data_int[1] > 9 or data_int[2] > 1 or data_int[3] > 1:
+        return 'Data inválida'
+    else:
+        return 'Data Válida'

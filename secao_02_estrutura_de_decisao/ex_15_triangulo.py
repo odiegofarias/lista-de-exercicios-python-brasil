@@ -27,3 +27,49 @@ Triângulo Escaleno: três lados diferentes;
 
 def classificar_trinagulo(lado_a: float, lado_b: float, lado_c: float):
     """Escreva aqui em baixo a sua solução"""
+    """
+    Com os três segmentos de reta medindo 5cm, 10cm e 9cm, podemos           formar um triângulo?
+    Vamos aplicar a regra da condição de existência de um triângulo          para todos os lados.
+    |10 – 9| < 5 < 10 + 9
+    1 < 5 <19 (VERDADEIRO)
+    
+    |9 – 5| < 10 < 9 + 5
+    4 < 10 < 14 (VERDADEIRO)
+    
+    |5 – 10| < 9 < 10 + 5
+    5 < 9 < 15 (VERDADEIRO)
+  """
+    lado_triangulo = True
+
+    if lado_b - lado_c < lado_a < lado_b + lado_c:
+        lado_triangulo = True
+
+        if lado_c - lado_a < lado_b < lado_c + lado_a:
+            lado_triangulo = True
+
+            if lado_a - lado_b < lado_a < lado_a + lado_b:
+                lado_triangulo = True
+
+            else:
+                lado_triangulo = False
+
+        else:
+            lado_triangulo = False
+
+    else:
+        lado_triangulo = False
+
+    if lado_triangulo:
+        #  O triângulo equilátero possui todos os lados congruentes, isto é,        #  todos os lados do triângulo possuem a mesma medida.
+        if lado_a == lado_b and lado_b == lado_c:
+            return 'Triângulo Equilátero'
+
+        #  O triângulo isósceles possui pelo menos dois lados congruentes, ou       #  seja, possui dois lados iguais e um diferente.
+        elif lado_a == lado_b or lado_b == lado_c or lado_c == lado_a:
+            return 'Triângulo Isósceles'
+
+        #  O triângulo escaleno possui todos os seus lados diferentes, ou seja,     #  cada lado tem uma medida diferente.
+        else:
+            return 'Triângulo Escaleno'
+    else:
+        return 'Não é um triângulo'
